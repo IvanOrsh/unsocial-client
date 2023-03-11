@@ -1,0 +1,7 @@
+{
+  "name": "unsocial-client",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

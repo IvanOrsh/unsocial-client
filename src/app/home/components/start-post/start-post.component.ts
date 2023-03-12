@@ -25,6 +25,6 @@ export class StartPostComponent implements OnInit {
     if (data) {
       console.log('data exists!');
     }
-    console.log('role: ', role, 'data:', data);
+    console.log('role:', role, 'data:', data);
   }
 }

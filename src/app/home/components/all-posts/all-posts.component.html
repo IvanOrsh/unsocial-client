@@ -1,0 +1,79 @@
+<div class="all-posts-container">
+  <ion-content>
+    <ion-list>
+      <ion-card *ngFor="let post of allLoadedPosts">
+        <ion-grid>
+          <ion-row class="ion-align-items-center ion-justify-content-center">
+            <!-- avatar -->
+            <ion-col size="auto" class="ion-padding">
+              <ion-avatar>
+                <ion-img
+                  src="../../.././../assets/Portrait_Placeholder.png"
+                ></ion-img>
+              </ion-avatar>
+            </ion-col>
+            <!-- avatar -->
+
+            <!-- info -->
+            <ion-col>
+              <div class="full-name">Ivan Orsh</div>
+              <div class="role">Fullstack Developer</div>
+              <div class="meta-data">
+                Id<ion-icon name="ellipse"></ion-icon> Edited
+                <ion-icon name="ellipse"></ion-icon>
+                <ion-icon color="dark" name="globe-outline"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+          <!-- info -->
+
+          <!-- post: data -->
+          <p class="post-body">{{ post.body }}</p>
+          <!-- post -->
+
+          <!-- buttons: like, comment, share, send  -->
+          <ion-row>
+            <!-- button: like -->
+            <ion-button color="medium" fill="clear">
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+              <ion-text>Like</ion-text>
+            </ion-button>
+            <!-- button: like -->
+
+            <!-- button: comment -->
+            <ion-button color="medium" fill="clear">
+              <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+              <ion-text>Comment</ion-text>
+            </ion-button>
+            <!-- button: like -->
+
+            <!-- button: share -->
+            <ion-button color="medium" fill="clear">
+              <ion-icon name="arrow-redo-outline"></ion-icon>
+              <ion-text>Share</ion-text>
+            </ion-button>
+            <!-- button: like -->
+
+            <!-- button: send -->
+            <ion-button color="medium" fill="clear">
+              <ion-icon name="paper-plane-outline"></ion-icon>
+              <ion-text>Send</ion-text>
+            </ion-button>
+            <!-- button: like -->
+          </ion-row>
+          <!-- buttons: likes,  -->
+        </ion-grid>
+      </ion-card>
+    </ion-list>
+
+    <!-- infinite scroll (from docs) -->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingText="Please wait..."
+        loadingSpinner="bubbles"
+      ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <!-- infinite scroll (from docs) -->
+  </ion-content>
+  <div class="hide-scroll"></div>
+</div>

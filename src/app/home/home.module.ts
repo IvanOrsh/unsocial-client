@@ -7,7 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderModule } from './components/header/header.module';
 
-import { StartPostComponent } from './components/start-post/start-post.component';
+import { StartPostModule } from './components/start-post/start-post.module';
 import { ProfileSummaryComponent } from './components/profile-summary/profile-summary.component';
 import { AdvertisingComponent } from './components/advertising/advertising.component';
 
@@ -18,12 +18,8 @@ import { AdvertisingComponent } from './components/advertising/advertising.compo
     IonicModule,
     HomePageRoutingModule,
     HeaderModule,
+    StartPostModule,
   ],
-  declarations: [
-    HomePage,
-    StartPostComponent,
-    ProfileSummaryComponent,
-    AdvertisingComponent,
-  ],
+  declarations: [HomePage, ProfileSummaryComponent, AdvertisingComponent],
 })
 export class HomePageModule {}

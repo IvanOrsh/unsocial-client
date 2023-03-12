@@ -7,6 +7,10 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderModule } from './components/header/header.module';
 
+import { StartPostComponent } from './components/start-post/start-post.component';
+import { ProfileSummaryComponent } from './components/profile-summary/profile-summary.component';
+import { AdvertisingComponent } from './components/advertising/advertising.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +19,11 @@ import { HeaderModule } from './components/header/header.module';
     HomePageRoutingModule,
     HeaderModule,
   ],
-  declarations: [HomePage],
+  declarations: [
+    HomePage,
+    StartPostComponent,
+    ProfileSummaryComponent,
+    AdvertisingComponent,
+  ],
 })
 export class HomePageModule {}

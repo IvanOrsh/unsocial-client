@@ -4,6 +4,10 @@
   ion-content {
     height: calc(100vh - 425px);
 
+    @media (max-width: 1200px) {
+      height: calc(100vh - 350px);
+    }
+
     ion-list {
       background-color: #f3f2ef;
       padding-top: 0;
@@ -52,5 +56,9 @@
     margin-left: -16px;
     border-right: 16px solid #f3f2ef;
     z-index: 2;
+
+    @media (max-width: 1200px) {
+      height: calc(100vh - 350px);
+    }
   }
 }

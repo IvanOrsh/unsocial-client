@@ -2,7 +2,7 @@
   display: flex;
 
   ion-content {
-    height: calc(100vh - 320px);
+    height: calc(100vh - 425px);
 
     ion-list {
       background-color: #f3f2ef;
@@ -48,7 +48,7 @@
     }
   }
   .hide-scroll {
-    height: calc(100vh - 320px);
+    height: calc(100vh - 425px);
     margin-left: -16px;
     border-right: 16px solid #f3f2ef;
     z-index: 2;

@@ -1,4 +1,4 @@
-<div class="all-posts-container">
+<div class="all-posts-container" *ngIf="allLoadedPosts.length > 0">
   <ion-content>
     <ion-list>
       <ion-card *ngFor="let post of allLoadedPosts">
@@ -67,7 +67,7 @@
     </ion-list>
 
     <!-- infinite scroll (from docs) -->
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content
         loadingText="Please wait..."
         loadingSpinner="bubbles"

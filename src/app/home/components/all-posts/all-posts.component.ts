@@ -14,19 +14,17 @@ export class AllPostsComponent implements OnInit {
 
   queryParams!: string;
   allLoadedPosts: Post[] = [];
-  numberOfPosts = 6;
+  numberOfPosts = 5;
   skipPosts = 0;
 
   constructor(private postService: PostService) {}
 
   ngOnInit() {
-    this.getPosts(false, '');
+    this.getPosts(false); // Call the getPosts() method here
   }
 
-  getPosts(isInitialLoad: boolean, event: any) {
-    if (this.skipPosts === 20) {
-      event.target.disabled = true;
-    }
+  getPosts(isInitialLoad: boolean) {
+    if (this.skipPosts === 20) this.infiniteScroll.disabled = true;
 
     // take=10&skip=0
     this.queryParams = `?take=${this.numberOfPosts}&skip=${this.skipPosts}`;
@@ -37,9 +35,9 @@ export class AllPostsComponent implements OnInit {
           this.allLoadedPosts.push(posts[post]);
         }
 
-        if (isInitialLoad) event.target.complete();
+        if (isInitialLoad) this.infiniteScroll.complete();
 
-        this.skipPosts = this.skipPosts + 6;
+        this.skipPosts = this.skipPosts + 5;
       },
       (error) => {
         console.log(error);
@@ -48,6 +46,6 @@ export class AllPostsComponent implements OnInit {
   }
 
   loadData(ev: any) {
-    this.getPosts(true, ev);
+    this.getPosts(true);
   }
 }

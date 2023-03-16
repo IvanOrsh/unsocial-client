@@ -1,0 +1,123 @@
+<ion-content>
+  <!-- Text + Logo -->
+  <div class="title-container">
+    <ion-text color="primary" class="unsocial-text">Unsocial</ion-text>
+    <ion-icon
+      class="unsocial-icon"
+      name="walk-outline"
+      color="primary"
+    ></ion-icon>
+  </div>
+  <!-- Text + Logo -->
+
+  <div>
+    <div class="subtitle-container">Make the most of your life!</div>
+  </div>
+
+  <!-- form -->
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <!-- first name -->
+      <ng-container *ngIf="submissionType === 'join'">
+        <ion-item>
+          <ion-label position="floating">First name</ion-label>
+          <ion-input
+            #firstNameInput="ngModel"
+            ngModel
+            type="text"
+            name="firstName"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-text
+          color="danger"
+          *ngIf="!firstNameInput.valid && firstNameInput.touched"
+          >Please enter your name.</ion-text
+        >
+      </ng-container>
+      <!-- first name -->
+
+      <!-- last name -->
+      <ng-container *ngIf="submissionType === 'join'">
+        <ion-item>
+          <ion-label position="floating">Last name</ion-label>
+          <ion-input
+            #lastNameInput="ngModel"
+            ngModel
+            type="text"
+            name="lastName"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-text
+          color="danger"
+          *ngIf="!lastNameInput.valid && lastNameInput.touched"
+          >Please enter your last name.</ion-text
+        >
+      </ng-container>
+      <!-- last name -->
+
+      <!-- email -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          #emailInput="ngModel"
+          ngModel
+          type="email"
+          name="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="!emailInput.valid && emailInput.touched"
+        >Please enter your email address.</ion-text
+      >
+      <!-- email -->
+
+      <!-- password -->
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          #passwordInput="ngModel"
+          ngModel
+          type="password"
+          name="password"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-text
+        color="danger"
+        *ngIf="!passwordInput.valid && passwordInput.touched"
+        >Please enter your password.</ion-text
+      >
+      <!-- password -->
+
+      <!-- terms and conditions -->
+      <p class="terms-and-conditions" *ngIf="submissionType === 'join'">
+        By clicking Agree & Join, you agree to the Unsocial
+        <ion-text color="primary">User Agreement</ion-text>,
+        <ion-text color="primary">Privacy Policy</ion-text>, and
+        <ion-text color="primary">Cookie Policy</ion-text>
+      </p>
+      <!-- terms and conditions -->
+
+      <!-- button -->
+      <ion-button
+        [disabled]="!form.valid"
+        type="submit"
+        shape="round"
+        expand="block"
+        >{{ submissionType === "login" ? "Sign in" : "Accept & Join"
+        }}</ion-button
+      >
+      <!-- button -->
+    </ion-card>
+  </form>
+  <!-- form -->
+
+  <div class="toggle-text">
+    {{ submissionType === "login" ? "New to Unsocial" : "Already on Unsocial" }}
+    <ion-text (click)="toggleText()" color="primary">
+      {{ submissionType === "login" ? "Join now" : "Sing in" }}
+    </ion-text>
+  </div>
+</ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IonicModule } from '@ionic/angular';
+import { AuthService } from 'src/app/auth/service/auth.service';
 
 @Component({
   selector: 'app-popover',
@@ -8,11 +9,11 @@ import { IonicModule } from '@ionic/angular';
   styleUrls: ['./popover.component.scss'],
 })
 export class PopoverComponent implements OnInit {
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
   onSignOut() {
-    console.log(1, 'onSignedOut called');
+    this.authService.logout();
   }
 }
